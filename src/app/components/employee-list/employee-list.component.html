@@ -3,6 +3,11 @@
   <ul>
     <li *ngFor="let employee of employees">
       {{employee.firstName}}
+      {{employee.lastName}}
+      {{employee.position}}
+      <a [routerLink]="['/employee', employee.id]">
+        <span class="btn">View</span>
+      </a>
     </li>
   </ul>
 </div>
