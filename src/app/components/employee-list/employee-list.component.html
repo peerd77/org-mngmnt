@@ -1,3 +1,8 @@
-<p>
-  employee-list works!
-</p>
+<div>
+  <h3>Employee List</h3>
+  <ul>
+    <li *ngFor="let employee of employees">
+      {{employee.firstName}}
+    </li>
+  </ul>
+</div>
