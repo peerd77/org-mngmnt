@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { EmployeeService } from 'src/app/services/employee-service.service';
+import { EmployeeService } from 'src/app/services/employee.service';
 
 import { of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
