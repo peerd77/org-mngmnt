@@ -1,6 +1,6 @@
 <div *ngIf="subordinates$ | async as subordinates" class="row">
   <div class="col-md-12">
-    <h4>My tasks</h4>
+    <h4>My subordinates</h4>
     <div *ngFor="let subordinate of subordinates" class="row">
       <div class="col-md-3">
         <span>{{subordinate | fullName}}</span>
