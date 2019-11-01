@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { EmployeeService } from 'src/app/services/employee.service';
 
-import { of } from 'rxjs';
+import { of, Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
+import { Employee } from 'src/app/models/employee';
 
 
 
@@ -13,9 +14,8 @@ import { switchMap } from 'rxjs/operators';
   styleUrls: ['./employee-details.component.scss']
 })
 export class EmployeeDetailsComponent implements OnInit {
-  employee$: any;
-  gotData: boolean;
-  manager$: any;
+  employee$: Observable<Employee>;
+  manager$: Observable<Employee>;
 
   constructor(
     private route: ActivatedRoute,
