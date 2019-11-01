@@ -14,6 +14,8 @@ import { switchMap } from 'rxjs/operators';
 })
 export class EmployeeDetailsComponent implements OnInit {
   employee$: any;
+  gotData: boolean;
+  manager$: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -22,9 +24,15 @@ export class EmployeeDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.employee$ = this.route.paramMap.pipe(
-      switchMap((params: ParamMap) =>
-        this.service.getEmployee(params.get('id')))
-    );
+      switchMap((params: ParamMap) => {
+        const employeeId = params.get('id');
+        this.manager$ = this.service.getManager(employeeId);
+        return this.service.getEmployee(employeeId);
+      }));
+  }
+
+  onReportClick() {
+    
   }
 
 }

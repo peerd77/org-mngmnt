@@ -7,7 +7,7 @@ import { ObservableInput, Observable, of } from 'rxjs';
   providedIn: 'root'
 })
 export class EmployeeService {
-  
+ 
 employees: Array<Employee>;
 
 constructor() { 
@@ -27,6 +27,10 @@ constructor() {
 
   getEmployee(employeeId: string): ObservableInput<Employee> {
     return of(this.employees.find(e => e.id === employeeId)) 
+  }
+
+  getManager(employeeId: string): ObservableInput<Employee> {
+    return of(this.employees[0]);
   }
 
 }

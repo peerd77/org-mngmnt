@@ -1,3 +1,29 @@
-<p *ngIf = "employee$ | async as employee">
-  {{employee.firstName}}
-</p>
+
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="img-holder">Image Place Holder</div>
+      </div>
+      <div *ngIf="employee$ | async as employee"  class="col-md-9">
+        <div class="row">
+          <span class="col-md-3">Name:</span>
+          <span class="col-md-3">{{employee | fullName}}</span>
+        </div>
+        <div class="row">
+          <span class="col-md-3">Position:</span>
+          <span class="col-md-9">{{employee.position}}</span>
+        </div>
+        <hr>
+        <div *ngIf="manager$ | async as manager" class="row">
+          <span class="col-md-3">Manger:</span>
+          <span class="col-md-6">{{manager | fullName}}</span>
+          <span class=col-md-3>
+            <button class="btn btn-primary" (onclick)="onReportClick()">Report</button>
+          </span>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
