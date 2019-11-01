@@ -10,6 +10,7 @@ import { FullNamePipe } from './pipes/full-name.pipe';
 import { EmployeeTasksComponent } from './components/employee-tasks/employee-tasks.component';
 import { EmployeeSubordinatesComponent } from './components/employee-subordinates/employee-subordinates.component';
 import { EmployeeReportsComponent } from './components/employee-reports/employee-reports.component';
+import { ModalComponent } from './components/common/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { EmployeeReportsComponent } from './components/employee-reports/employee
     FullNamePipe,
     EmployeeTasksComponent,
     EmployeeSubordinatesComponent,
-    EmployeeReportsComponent  
+    EmployeeReportsComponent,
+    ModalComponent
 
   ],
   imports: [
