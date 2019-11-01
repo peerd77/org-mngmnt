@@ -13,6 +13,8 @@ import { EmployeeReportsComponent } from './components/employee-list/employee-de
 import { ModalComponent } from './components/common/modal/modal.component';
 import { BaseComponent } from './components/common/base/base.component';
 import { EmployeeSummaryComponent } from './components/employee-list/employee-details/employee-summary/employee-summary.component';
+import { ModalContentComponent } from './components/common/modal/modal-content/modal-content.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,12 +28,17 @@ import { EmployeeSummaryComponent } from './components/employee-list/employee-de
     ModalComponent,
     BaseComponent,
     EmployeeSummaryComponent,
+    ModalContentComponent,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    FormsModule,
+  ],
+  entryComponents: [
+    ModalContentComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

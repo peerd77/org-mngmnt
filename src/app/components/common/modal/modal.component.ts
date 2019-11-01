@@ -3,6 +3,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { Enums } from 'src/app/models/enums';
 import { BaseComponent } from '../base/base.component';
+import { ModalContentComponent } from './modal-content/modal-content.component';
 
 @Component({
   selector: 'app-modal',
@@ -25,13 +26,11 @@ export class ModalComponent extends BaseComponent implements OnInit {
   }
 
 
-  open(content) {
-    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
-      this.outputData.emit({
-        text: this.text,
-        date: this.date,
-      });
-    });
+  open() {
+    const modalRef = this.modalService.open(ModalContentComponent);
+    modalRef.componentInstance.modalType = this.modalType;
+    modalRef.componentInstance.outputData = this.outputData;
+    modalRef.result.then(data => console.log('data ', data));
   }
 
 }
