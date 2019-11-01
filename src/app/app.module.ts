@@ -7,6 +7,7 @@ import { EmployeeListComponent } from './components/employee-list/employee-list.
 import { EmployeeDetailsComponent } from './components/employee-details/employee-details.component';
 import { FullNamePipe } from './pipes/full-name.pipe';
 import { EmployeeTasksComponent } from './components/employee-tasks/employee-tasks.component';
+import { EmployeeSubordinatesComponent } from './components/employee-subordinates/employee-subordinates.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { EmployeeTasksComponent } from './components/employee-tasks/employee-tas
     EmployeeDetailsComponent,
     FullNamePipe,
     EmployeeTasksComponent,
+    EmployeeSubordinatesComponent
   ],
   imports: [
     BrowserModule,
