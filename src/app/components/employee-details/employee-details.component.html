@@ -1,11 +1,11 @@
 
 <div class="jumbotron">
-  <div class="container">
+  <div *ngIf="employee$ | async as employee" class="container">
     <div class="row">
       <div class="col-md-3">
         <div class="img-holder">Image Place Holder</div>
       </div>
-      <div *ngIf="employee$ | async as employee"  class="col-md-9">
+      <div class="col-md-9">
         <div class="row">
           <span class="col-md-3">Name:</span>
           <span class="col-md-3">{{employee | fullName}}</span>
@@ -24,5 +24,6 @@
         </div>
       </div>
     </div>
+    <app-employee-tasks [employeeId]="employee.id"></app-employee-tasks>
   </div>
 </div>

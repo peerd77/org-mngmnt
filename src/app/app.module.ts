@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { EmployeeListComponent } from './components/employee-list/employee-list.component';
 import { EmployeeDetailsComponent } from './components/employee-details/employee-details.component';
 import { FullNamePipe } from './pipes/full-name.pipe';
+import { EmployeeTasksComponent } from './components/employee-tasks/employee-tasks.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { FullNamePipe } from './pipes/full-name.pipe';
     EmployeeListComponent,
     EmployeeDetailsComponent,
     FullNamePipe,
+    EmployeeTasksComponent,
   ],
   imports: [
     BrowserModule,

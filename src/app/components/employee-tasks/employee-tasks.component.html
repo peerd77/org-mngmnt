@@ -1,0 +1,13 @@
+<div *ngIf="tasks$ | async as tasks" class="row">
+  <div class="col-md-12">
+    <h4>My tasks</h4>
+      <div *ngFor="let task of tasks" class="row">
+        <div class="col-md-9">
+          <span>{{task.text}}</span>
+        </div>
+        <div class="col-md-3">
+          <span>{{task.dueDate}}</span>
+        </div>
+      </div>
+  </div>
+</div>

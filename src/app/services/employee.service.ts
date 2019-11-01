@@ -35,6 +35,9 @@ constructor() {
   }
 
   getTasks(employeeId: string): Observable<Array<Task>> {
+    if (! employeeId)
+      throw Observable.throw("") ;
+
     const tasks = [];
     for (let i = 0; i < 5; i++) {
       let newTask = new Task();
