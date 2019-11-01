@@ -16,7 +16,7 @@
       <span class="col-md-3">Manger:</span>
       <span class="col-md-6">{{manager | fullName}}</span>
       <span class=col-md-3>
-        <button class="btn btn-primary" (onclick)="onReportClick()">Report</button>
+        <app-modal [modalType]="enums.ModalType.Report"></app-modal> 
       </span>
     </div>
   </div>

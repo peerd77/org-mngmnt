@@ -9,7 +9,7 @@
         <span>{{subordinate.position}}</span>
       </div>
       <div class="col-md-3">
-        <button class="btn btn-primary">Assign Task</button>
+        <app-modal [modalType]="enums.ModalType.Task" ></app-modal>
       </div>
     </div>
   </div>

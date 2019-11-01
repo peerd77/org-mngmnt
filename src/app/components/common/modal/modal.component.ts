@@ -1,16 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { Enums } from 'src/app/models/enums';
+import { BaseComponent } from '../base/base.component';
 
 @Component({
   selector: 'app-modal',
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.scss']
 })
-export class ModalComponent implements OnInit {
-  closeResult: string;
+export class ModalComponent extends BaseComponent implements OnInit {
+  @Input() modalType: Enums.ModalType;
+  @Output() outputData = new EventEmitter();
 
-  constructor(private modalService: NgbModal) { }
+  closeResult: string;
+  date: Date;
+  text: string;
+
+  constructor(private modalService: NgbModal) {
+    super();
+  }
 
   ngOnInit() {
   }
@@ -18,20 +27,11 @@ export class ModalComponent implements OnInit {
 
   open(content) {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      this.outputData.emit({
+        text: this.text,
+        date: this.date,
+      });
     });
-  }
-
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return `with: ${reason}`;
-    }
   }
 
 }

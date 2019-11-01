@@ -8,5 +8,10 @@ export namespace Enums {
         Position7 = 7,
         Position8 = 8,
     }
+
+    export enum ModalType {
+        Report = 1,
+        Task = 2,
+    }
 }
 
