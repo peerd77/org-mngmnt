@@ -8,6 +8,7 @@ import { EmployeeDetailsComponent } from './components/employee-details/employee
 import { FullNamePipe } from './pipes/full-name.pipe';
 import { EmployeeTasksComponent } from './components/employee-tasks/employee-tasks.component';
 import { EmployeeSubordinatesComponent } from './components/employee-subordinates/employee-subordinates.component';
+import { EmployeeReportsComponent } from './components/employee-reports/employee-reports.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,9 @@ import { EmployeeSubordinatesComponent } from './components/employee-subordinate
     EmployeeDetailsComponent,
     FullNamePipe,
     EmployeeTasksComponent,
-    EmployeeSubordinatesComponent
+    EmployeeSubordinatesComponent,
+    EmployeeReportsComponent  
+
   ],
   imports: [
     BrowserModule,
