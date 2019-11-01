@@ -26,7 +26,6 @@ export class EmployeeDetailsComponent implements OnInit {
     this.employee$ = this.route.paramMap.pipe(
       switchMap((params: ParamMap) => {
         const employeeId = params.get('id');
-        this.manager$ = this.service.getManager(employeeId);
         return this.service.getEmployee(employeeId);
       }));
   }

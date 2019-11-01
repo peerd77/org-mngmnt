@@ -12,6 +12,7 @@ import { EmployeeSubordinatesComponent } from './components/employee-list/employ
 import { EmployeeReportsComponent } from './components/employee-list/employee-details/employee-reports/employee-reports.component';
 import { ModalComponent } from './components/common/modal/modal.component';
 import { BaseComponent } from './components/common/base/base.component';
+import { EmployeeSummaryComponent } from './components/employee-list/employee-details/employee-summary/employee-summary.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { BaseComponent } from './components/common/base/base.component';
     EmployeeReportsComponent,
     ModalComponent,
     BaseComponent,
+    EmployeeSummaryComponent,
 
   ],
   imports: [
