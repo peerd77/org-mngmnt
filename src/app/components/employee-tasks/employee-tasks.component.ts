@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, AfterContentInit } from '@angular/core';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { Observable } from 'rxjs';
+import { Task } from 'src/app/models/task';
 
 @Component({
   selector: 'app-employee-tasks',
