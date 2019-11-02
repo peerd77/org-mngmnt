@@ -1,15 +1,17 @@
 <div *ngIf="subordinates$ | async as subordinates" class="row">
   <div class="col-md-12">
     <h4>My subordinates</h4>
-    <div *ngFor="let subordinate of subordinates" class="row">
-      <div class="col-md-3">
-        <span>{{subordinate | fullName}}</span>
-      </div>
-      <div class="col-md-3">
-        <span>{{subordinate.position}}</span>
-      </div>
-      <div class="col-md-3">
-        <app-modal [modalType]="enums.ModalType.Task" (save)="onSave($event)"></app-modal>
+    <div class="container border border-white rounded pt-3">
+      <div *ngFor="let subordinate of subordinates" class="row mb-3">
+        <div class="col-md-3">
+          <span>{{subordinate | fullName}}</span>
+        </div>
+        <div class="col-md-3">
+          <span>{{subordinate.position}}</span>
+        </div>
+        <div class="col-md-3">
+          <app-modal [modalType]="enums.ModalType.Task" (save)="onSave($event)"></app-modal>
+        </div>
       </div>
     </div>
   </div>
