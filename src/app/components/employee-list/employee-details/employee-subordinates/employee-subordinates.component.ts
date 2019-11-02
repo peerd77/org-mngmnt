@@ -3,6 +3,7 @@ import { Employee } from 'src/app/models/employee';
 import { Observable } from 'rxjs';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { BaseComponent } from 'src/app/components/common/base/base.component';
+import { EmployeeModalOutput } from 'src/app/models/employeeModalOutput';
 
 @Component({
   selector: 'app-employee-subordinates',
@@ -21,6 +22,10 @@ export class EmployeeSubordinatesComponent extends BaseComponent implements OnIn
 
   ngAfterContentInit() {
     this.subordinates$ = this.service.getSubordinates(this.employeeId);
+  }
+
+  onSave(event: EmployeeModalOutput) {
+    //TODO persist task;
   }
 
 }

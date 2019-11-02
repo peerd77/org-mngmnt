@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
-import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal, NgbDateAdapter, NgbDateNativeAdapter } from '@ng-bootstrap/ng-bootstrap';
 import { Enums } from 'src/app/models/enums';
 import { BaseComponent } from '../../base/base.component';
 import { EventEmitter } from 'events';
@@ -7,7 +7,9 @@ import { EventEmitter } from 'events';
 @Component({
   selector: 'app-modal-content',
   templateUrl: './modal-content.component.html',
-  styleUrls: ['./modal-content.component.scss']
+  styleUrls: ['./modal-content.component.scss'],
+  // native adapter is bundled with library
+  providers: [{ provide: NgbDateAdapter, useClass: NgbDateNativeAdapter }]
 })
 export class ModalContentComponent extends BaseComponent implements OnInit {
   @Input() modalType: Enums.EmployeePosition;
@@ -28,11 +30,14 @@ export class ModalContentComponent extends BaseComponent implements OnInit {
     this.modal.close({
       text: this.text,
       date: this.date
-    })
+    });
   }
 
   onDateChange(event: Date) {
-    this.date = event;
+    if(typeof(event) === "string")
+      this.date = new Date();
+    else  
+      this.date = event;
   }
 
 }

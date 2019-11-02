@@ -4,6 +4,7 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { Enums } from 'src/app/models/enums';
 import { BaseComponent } from '../base/base.component';
 import { ModalContentComponent } from './modal-content/modal-content.component';
+import { EmployeeModalOutput } from 'src/app/models/employeeModalOutput';
 
 @Component({
   selector: 'app-modal',
@@ -12,7 +13,7 @@ import { ModalContentComponent } from './modal-content/modal-content.component';
 })
 export class ModalComponent extends BaseComponent implements OnInit {
   @Input() modalType: Enums.ModalType;
-  @Output() outputData = new EventEmitter();
+  @Output() save = new EventEmitter<EmployeeModalOutput>();
 
   closeResult: string;
   date: Date;
@@ -29,8 +30,13 @@ export class ModalComponent extends BaseComponent implements OnInit {
   open() {
     const modalRef = this.modalService.open(ModalContentComponent);
     modalRef.componentInstance.modalType = this.modalType;
-    modalRef.componentInstance.outputData = this.outputData;
-    modalRef.result.then(data => console.log('data ', data));
+    modalRef.componentInstance.outputData = this.save;
+    modalRef.result.then(data => {
+      const output = new EmployeeModalOutput();
+      output.text = data.text;
+      output.date = data.date;
+      this.save.emit(output);
+    });
   }
 
 }

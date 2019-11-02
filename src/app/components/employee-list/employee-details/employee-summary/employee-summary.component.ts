@@ -3,6 +3,7 @@ import { Employee } from 'src/app/models/employee';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { Observable } from 'rxjs';
 import { BaseComponent } from 'src/app/components/common/base/base.component';
+import { EmployeeModalOutput } from 'src/app/models/employeeModalOutput';
 
 @Component({
   selector: 'app-employee-summary',
@@ -21,6 +22,10 @@ export class EmployeeSummaryComponent extends BaseComponent implements OnInit, A
 
   ngAfterContentInit() {
     this.manager$ = this.service.getManager(this.employee.id);
+  }
+
+  onSave(event: EmployeeModalOutput) {
+    //TODO persist report;
   }
 
 }
