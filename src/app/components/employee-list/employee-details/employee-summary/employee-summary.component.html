@@ -1,9 +1,9 @@
-<div class="row">
+<div class="row d-flex align-items-center">
   <div class="col-md-3">
-    <div class="img-holder">Image Place Holder</div>
+    <img class="img-thumbnail">
   </div>
   <div class="col-md-9">
-    <div class="row">
+    <div class="row mb-2">
       <span class="col-md-3">Name:</span>
       <span class="col-md-3">{{employee | fullName}}</span>
     </div>
@@ -12,7 +12,7 @@
       <span class="col-md-9">{{employee.position}}</span>
     </div>
     <hr>
-    <div *ngIf="manager$ | async as manager" class="row">
+    <div *ngIf="manager$ | async as manager" class="row d-flex align-items-end">
       <span class="col-md-3">Manger:</span>
       <span class="col-md-6">{{manager | fullName}}</span>
       <span class=col-md-3>
