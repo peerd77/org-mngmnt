@@ -43,4 +43,24 @@ export class HttpService {
     }
   }
 
+  public post<T>(relativePath: string, data: any) {
+    
+    // build request payload and headers
+    let completePath: string = `${environment.Server}${relativePath}`;
+    let body: string = JSON.stringify(data);
+    let headers = new HttpHeaders();
+    headers = headers.set("Content-type", "application/json");
+
+    try {
+      return this.http.post(completePath, body, { headers })
+        .pipe(
+          map((res: any) => {
+            console.log('res', res)
+          }))
+        .toPromise();
+    } catch (err) {
+      console.log('http err ', err)
+    }
+  }
+
 }
