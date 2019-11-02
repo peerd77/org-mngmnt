@@ -15,6 +15,7 @@ import { BaseComponent } from './components/common/base/base.component';
 import { EmployeeSummaryComponent } from './components/employee-list/employee-details/employee-summary/employee-summary.component';
 import { ModalContentComponent } from './components/common/modal/modal-content/modal-content.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     NgbModule,
     FormsModule,
+    HttpClientModule,
   ],
   entryComponents: [
     ModalContentComponent,
