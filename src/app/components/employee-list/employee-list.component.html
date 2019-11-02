@@ -1,7 +1,7 @@
 <div class="jumbotron">
   <div class="container text-center">
     <h3>Employee List</h3>
-    <ul>
+    <ul *ngIf="employees$ | async as employees">
       <div class="row margin-top-10" *ngFor="let employee of employees">
         <div class="col-md-2">{{employee.firstName}}</div>
         <div class="col-md-2">{{employee.lastName}}</div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { Employee } from 'src/app/models/employee';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-employee-list',
@@ -8,12 +9,12 @@ import { Employee } from 'src/app/models/employee';
   styleUrls: ['./employee-list.component.scss']
 })
 export class EmployeeListComponent implements OnInit {
-  employees: Array<Employee>;
+  employees$: Observable<Array<Employee>>;
 
   constructor(private employeeService:EmployeeService) { }
 
   ngOnInit() {
-    this.employees = this.employeeService.getEmployees();
+    this.employees$ = this.employeeService.getEmployees();
   }
 
 }
