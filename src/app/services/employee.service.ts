@@ -3,6 +3,8 @@ import { Employee } from '../models/employee';
 import { Enums } from '../models/enums';
 import { ObservableInput, Observable, of } from 'rxjs';
 import { Task } from '../models/task';
+import { HttpService } from './http.service';
+import { Api } from '../constants/api';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +13,7 @@ export class EmployeeService {
   
 employees: Array<Employee>;
 
-constructor() { 
+  constructor(private httpService: HttpService) { 
     this.employees = [];
     Object.keys(Enums.EmployeePosition).forEach((key ,index) => {
       let employee = new Employee();
@@ -22,8 +24,8 @@ constructor() {
       this.employees.push(employee);
     });
   }
-  getEmployees(): Array<Employee> {
-    return this.employees;
+  getEmployees(): Observable<Array<Employee>> {
+    return this.httpService.get(Api.Employee.GetEmployees, null)
   }
 
   getEmployee(employeeId: string): Observable<Employee> {
