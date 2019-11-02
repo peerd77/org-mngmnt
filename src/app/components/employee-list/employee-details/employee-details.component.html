@@ -1,9 +1,9 @@
 
 <div class="jumbotron">
-  <div *ngIf="employee$ | async as employee" class="container">
-    <app-employee-summary [employee]="employee"></app-employee-summary>
-    <app-employee-tasks [employeeId]="employee.id"></app-employee-tasks>
-    <app-employee-subordinates [employeeId]="employee.id"></app-employee-subordinates>
+  <div *ngIf="employee$ | async as employee" class="container d-flex flex-column justify-content-between">
+    <app-employee-summary [employee]="employee" class="mb-5"></app-employee-summary>
+    <app-employee-tasks [employeeId]="employee.id" class="mb-5"></app-employee-tasks>
+    <app-employee-subordinates [employeeId]="employee.id" class="mb-5"></app-employee-subordinates>
     <app-employee-reports></app-employee-reports>
   </div>
 </div>
