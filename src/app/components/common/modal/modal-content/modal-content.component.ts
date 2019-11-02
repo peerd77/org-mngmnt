@@ -13,7 +13,6 @@ import { EventEmitter } from 'events';
 })
 export class ModalContentComponent extends BaseComponent implements OnInit {
   @Input() modalType: Enums.EmployeePosition;
-  @Output() outputDate: EventEmitter = new EventEmitter();
 
   text: string;
   date: Date;

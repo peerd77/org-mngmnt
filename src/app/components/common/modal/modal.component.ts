@@ -30,13 +30,14 @@ export class ModalComponent extends BaseComponent implements OnInit {
   open() {
     const modalRef = this.modalService.open(ModalContentComponent);
     modalRef.componentInstance.modalType = this.modalType;
-    modalRef.componentInstance.outputData = this.save;
-    modalRef.result.then(data => {
+    modalRef.result
+    .then(data => {
       const output = new EmployeeModalOutput();
       output.text = data.text;
       output.date = data.date;
       this.save.emit(output);
-    });
+    })
+    .catch(err => err); // modal throws  on dismiss
   }
 
 }
