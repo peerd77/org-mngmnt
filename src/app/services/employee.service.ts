@@ -32,8 +32,8 @@ employees: Array<Employee>;
     return this.httpService.get(Api.Employee.Employees, employeeId); 
   }
 
-  getManager(employeeId: string): Observable<Employee> {
-    return of(this.employees[0]);
+  getManager(managerId: string): Observable<Employee> {
+    return this.httpService.get(Api.Employee.ManagerById, managerId); 
   }
 
   getTasks(employeeId: string): Observable<Array<Task>> {
