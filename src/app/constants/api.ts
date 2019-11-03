@@ -1,5 +1,5 @@
 export class Api {
     public static Employee = {
-        GetEmployees : 'Employee',
+        GetEmployees : 'api/Employee',
     }
 }
