@@ -9,7 +9,7 @@
     </div>
     <div class="row">
       <span class="col-md-3">Position:</span>
-      <span class="col-md-9">{{employee.position}}</span>
+      <span class="col-md-9">{{employee.position | enumKey:enums.EmployeePosition}}</span>
     </div>
     <hr>
     <div *ngIf="manager$ | async as manager" class="row d-flex align-items-end">
