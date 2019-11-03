@@ -16,6 +16,7 @@ import { EmployeeSummaryComponent } from './components/employee-list/employee-de
 import { ModalContentComponent } from './components/common/modal/modal-content/modal-content.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { EnumKeyPipe } from './pipes/enum-keys.pipe';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { HttpClientModule } from '@angular/common/http';
     BaseComponent,
     EmployeeSummaryComponent,
     ModalContentComponent,
+    EnumKeyPipe,
 
   ],
   imports: [

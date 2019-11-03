@@ -5,7 +5,7 @@
       <div class="row margin-top-10" *ngFor="let employee of employees">
         <div class="col-md-2">{{employee.firstName}}</div>
         <div class="col-md-2">{{employee.lastName}}</div>
-        <div class="col-md-2">{{employee.position}}</div>
+        <div class="col-md-2">{{employee.position | enumKey:enums.EmployeePosition}}</div>
         <div class="col-md-2">
           <a [routerLink]="['/employee', employee.id]">
             <span class="btn btn-primary">View</span>
