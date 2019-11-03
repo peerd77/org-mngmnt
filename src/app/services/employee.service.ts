@@ -25,7 +25,7 @@ employees: Array<Employee>;
     });
   }
   getEmployees(): Observable<Array<Employee>> {
-    return this.httpService.get(Api.Employee.GetEmployees, null)
+    return this.httpService.get(Api.Employee.GetEmployees, null);
   }
 
   getEmployee(employeeId: string): Observable<Employee> {
@@ -64,7 +64,7 @@ employees: Array<Employee>;
       newSub.id = `$(i + 1)`;
       newSub.firstName = `Suby${i + 1}`;
       newSub.lastName = `Ory${i + 1}`;
-      newSub.position = Enums.EmployeePosition.Position1;
+      newSub.position = Enums.EmployeePosition.Backend;
       subs.push(newSub);
     }
     return of(subs);

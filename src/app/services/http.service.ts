@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { map } from 'rxjs/operators';
 import { environment } from "../../environments/environment";
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +25,7 @@ export class HttpService {
     return "?" + paramsArr.join("&");
   }
 
-  public get(relativePath: string, data: any): any {
+  public get<T>(relativePath: string, data: any): Observable<any> {
     
     // build request payload and headers
     const completePath: string = `${environment.Server}${relativePath}${this.getParams(data)}`;
@@ -32,14 +33,11 @@ export class HttpService {
     let headers = new HttpHeaders();
     headers = headers.set("Content-type", "application/json");
     try {
-      return this.http.get(completePath)
-      .pipe(map(res => {
-        console.log('res', res)
-      })).toPromise();
+      return this.http.get(completePath);
 
     }
     catch(err) {
-      console.log('http err ', err)
+      console.log('http err ', err);
     }
   }
 
