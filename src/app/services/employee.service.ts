@@ -37,21 +37,7 @@ employees: Array<Employee>;
   }
 
   getTasks(employeeId: string): Observable<Array<Task>> {
-    if (! employeeId)
-      throw Observable.throw("") ;
-
-    const tasks = [];
-    for (let i = 0; i < 5; i++) {
-      let newTask = new Task();
-      newTask.text = "Something todo";
-      let now = new Date();
-      let dueDate = new Date(now);
-      dueDate.setDate(dueDate.getDate() + i);
-      newTask.createDate = now;
-      newTask.dueDate = dueDate;
-      tasks.push(newTask);
-    }
-    return of(tasks);
+    return this.httpService.get(Api.Employee.TasksByEmpId, employeeId)
   }
 
   getSubordinates(employeeId: string): Observable<Array<Employee>> {
