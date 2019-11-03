@@ -41,19 +41,7 @@ employees: Array<Employee>;
   }
 
   getSubordinates(employeeId: string): Observable<Array<Employee>> {
-    if (!employeeId)
-      throw Observable.throw("");
-
-    const subs = [];
-    for (let i = 0; i < 5; i++) {
-      let newSub = new Employee();
-      newSub.id = `$(i + 1)`;
-      newSub.firstName = `Suby${i + 1}`;
-      newSub.lastName = `Ory${i + 1}`;
-      newSub.position = Enums.EmployeePosition.Backend;
-      subs.push(newSub);
-    }
-    return of(subs);
+    return this.httpService.get(Api.Employee.GetSubordinates, employeeId);
   }
 
 

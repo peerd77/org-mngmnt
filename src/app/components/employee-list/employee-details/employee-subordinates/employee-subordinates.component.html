@@ -7,7 +7,7 @@
           <span>{{subordinate | fullName}}</span>
         </div>
         <div class="col-md-3">
-          <span>{{subordinate.position}}</span>
+          <span>{{subordinate.position|enumKey:enums.EmployeePosition}}</span>
         </div>
         <div class="col-md-3">
           <app-modal [modalType]="enums.ModalType.Task" (save)="onSave($event)"></app-modal>
