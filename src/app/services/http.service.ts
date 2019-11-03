@@ -25,10 +25,11 @@ export class HttpService {
     return "?" + paramsArr.join("&");
   }
 
-  public get<T>(relativePath: string, data: any): Observable<any> {
+  public get<T>(relativePath: string, id: any): Observable<any> {
     
     // build request payload and headers
-    const completePath: string = `${environment.Server}${relativePath}${this.getParams(data)}`;
+     //const completePath: string = `${environment.Server}${relativePath}${this.getParams(data)}`;
+    const completePath: string = `${environment.Server}${relativePath}/${id}`;
 
     let headers = new HttpHeaders();
     headers = headers.set("Content-type", "application/json");

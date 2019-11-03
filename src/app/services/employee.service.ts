@@ -25,11 +25,11 @@ employees: Array<Employee>;
     });
   }
   getEmployees(): Observable<Array<Employee>> {
-    return this.httpService.get(Api.Employee.GetEmployees, null);
+    return this.httpService.get(Api.Employee.Employees, '');
   }
 
   getEmployee(employeeId: string): Observable<Employee> {
-    return of(this.employees.find(e => e.id === employeeId)) 
+    return this.httpService.get(Api.Employee.Employees, employeeId); 
   }
 
   getManager(employeeId: string): Observable<Employee> {
