@@ -23,7 +23,7 @@
         <input id="dateOfBirth" [ngModel]="date" (ngModelChange)="onDateChange($event)" class="form-control"
          placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
         <div class="input-group-append">
-          <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>
+          <fa class="btn btn-outline-secondary" name="calendar" (click)="dp.toggle()"></fa>
         </div>
       </div>
     </div>
