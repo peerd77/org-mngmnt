@@ -49,5 +49,10 @@ employees: Array<Employee>;
     return this.httpService.post(Api.Employee.CreateReport, report);
   }
 
+  addTask(task: { employeeId: string; text: string; dueDate: Date; }) {
+    return this.httpService.post(Api.Employee.CreateTask, task);
+  }
+
+
 
 }

@@ -5,5 +5,6 @@ export class Api {
         TasksByEmpId: 'api/Employees/TasksByEmpId',
         GetSubordinates: 'api/Employees/GetSubordinates',
         CreateReport: 'api/Employees/CreateReport',
+        CreateTask: 'api/Employees/CreateTask',
     }
 }

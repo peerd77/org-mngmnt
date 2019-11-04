@@ -24,8 +24,13 @@ export class EmployeeSubordinatesComponent extends BaseComponent implements OnIn
     this.subordinates$ = this.service.getSubordinates(this.employeeId);
   }
 
-  onSave(event: EmployeeModalOutput) {
-    //TODO persist task;
+  onSave(event: EmployeeModalOutput, subordinate: Employee) {
+    const data = {
+      employeeId: subordinate.id,
+      text: event.text,
+      dueDate: event.date
+    }
+    this.service.addTask(data);
   }
 
 }
