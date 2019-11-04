@@ -26,7 +26,6 @@ export class EmployeeSummaryComponent extends BaseComponent implements OnInit, A
 
   onSave(event: EmployeeModalOutput, manager: Employee, employee: Employee) {
     const data = {
-      managerId: manager.id,
       employeeId: employee.id,
       text: event.text
     }

@@ -45,7 +45,7 @@ employees: Array<Employee>;
     return this.httpService.get(Api.Employee.GetSubordinates, employeeId);
   }
 
-  addReport(report: {managerId: string, employeeId: string, text: string}) {
+  addReport(report: {employeeId: string, text: string}) {
     return this.httpService.post(Api.Employee.CreateReport, report);
   }
 
