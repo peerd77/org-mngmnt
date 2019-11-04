@@ -16,7 +16,7 @@
       <span class="col-md-3">Manager:</span>
       <span class="col-md-6">{{manager | fullName}}</span>
       <span class=col-md-3>
-        <app-modal [modalType]="enums.ModalType.Report" (save)="onSave($event)"></app-modal> 
+        <app-modal [modalType]="enums.ModalType.Report" (save)="onSave($event, manager, employee)"></app-modal> 
       </span>
     </div>
   </div>

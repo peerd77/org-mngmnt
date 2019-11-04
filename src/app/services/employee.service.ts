@@ -5,6 +5,7 @@ import { ObservableInput, Observable, of } from 'rxjs';
 import { Task } from '../models/task';
 import { HttpService } from './http.service';
 import { Api } from '../constants/api';
+import { EmployeeModalOutput } from '../models/employeeModalOutput';
 
 @Injectable({
   providedIn: 'root'
@@ -42,6 +43,10 @@ employees: Array<Employee>;
 
   getSubordinates(employeeId: string): Observable<Array<Employee>> {
     return this.httpService.get(Api.Employee.GetSubordinates, employeeId);
+  }
+
+  addReport(report: {managerId: string, employeeId: string, text: string}) {
+    return this.httpService.post(Api.Employee.CreateReport, report);
   }
 
 

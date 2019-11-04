@@ -24,8 +24,13 @@ export class EmployeeSummaryComponent extends BaseComponent implements OnInit, A
     this.manager$ = this.service.getManager(this.employee.id);
   }
 
-  onSave(event: EmployeeModalOutput) {
-    //TODO persist report;
+  onSave(event: EmployeeModalOutput, manager: Employee, employee: Employee) {
+    const data = {
+      managerId: manager.id,
+      employeeId: employee.id,
+      text: event.text
+    }
+    this.service.addReport(data);
   }
 
 }
